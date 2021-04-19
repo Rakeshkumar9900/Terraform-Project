@@ -38,3 +38,8 @@ resource "aws_route_table" "Pub-Prod" {
     Name = "Pub-Prod"
   }
 }
+
+resource "aws_route_table_association" "public-subnet" {
+  subnet_id      = aws_subnet.public-subnet.id
+  route_table_id = aws_route_table.Pub-Prod.id
+}
